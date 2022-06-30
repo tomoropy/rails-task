@@ -7,15 +7,8 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = notice 
-    br
-    = alert 
-    br
-    - if user_signed_in?
-      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-primary'
-    - else 
-      = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'
-
-    .container 
+  body id="#{controller.controller_name}-#{controller.action_name}"
+    .container
+      = render 'shared/header'
       = yield
+      = render 'shared/footer'

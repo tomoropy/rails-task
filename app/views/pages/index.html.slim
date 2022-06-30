@@ -1,1 +1,25 @@
-p index page
+.content-wrapper
+  .contents-block 
+    - (1..5).each
+      .content
+        .img 
+        .twite
+          p これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。
+            これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。
+            これはテキストです。これはテキストです。これはテキストです。これはテキストです。
+    .content
+      .img 
+      .twite
+        p これは普通のテキストです。これは普通のテキストです。これは普通のテキストです。
+          これは普通のテキストです。これは普通のテキストです。。
+    .content
+      .img 
+      .twite
+        p これは短いテキストです。
+  .profile
+    .prof_img
+    .user_name
+      - if user_signed_in?
+        = current_user.username
+    .btn 
+      p Tweet!
