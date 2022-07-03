@@ -6,5 +6,6 @@
         = current_user.name
     .profile_text
       p = current_user.profile_text
-  .edit
-    = link_to 'Edit!', edit_profile_path(current_user), class: 'btn'
+  .buttons
+    = link_to 'Edit', edit_profile_path(current_user), class: 'btn edit'
+    = link_to 'Delete', user_registration_path, method: :delete, class: 'btn delete'

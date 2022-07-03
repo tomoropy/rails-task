@@ -19,6 +19,6 @@
     .prof_img
     .user_name
       - if user_signed_in?
-        = link_to current_user.name, profile_path(current_user), class: "nam"
+        = link_to current_user.name, profile_path(current_user), class: "name"
     .btn 
       p Tweet!

@@ -46,11 +46,18 @@
       }
     }
 
-    .edit {
+    .buttons {
+      display: flex;
+      flex-flow: column;
       margin-top: 30px;
+
       .btn {
         background-color: bisque;
         text-decoration: none;
+      }
+
+      .edit {
+        margin-bottom: 6px;
       }
     }
   }
