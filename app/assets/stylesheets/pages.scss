@@ -16,7 +16,6 @@
       .content {
         display: flex;
         margin-bottom: 10px;
-        height: 100px;
         
         .img {
           background-color: gray;
@@ -58,6 +57,11 @@
 
       .user_name {
         text-align: center;
+
+        .name {
+          text-decoration: none;
+          color: black;
+        }
       }
 
       .btn{

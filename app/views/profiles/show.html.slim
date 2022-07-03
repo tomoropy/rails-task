@@ -1,1 +1,10 @@
-p show_page
+.content-wrapper 
+  .profile 
+    .img 
+    .name
+      - if user_signed_in?
+        = current_user.name
+    .profile_text
+      p = current_user.profile_text
+  .edit
+    = link_to 'Edit!', edit_profile_path(current_user), class: 'btn'

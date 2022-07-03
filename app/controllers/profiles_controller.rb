@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update]
   
   def new
+    return redirect_to edit_profile_path(current_user) if !current_user.profile.blank?
     @profile = Profile.new
   end
   
@@ -26,7 +27,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to root_path, notice: "プロフィールを更新しました"
+      redirect_to profile_path(current_user), notice: "プロフィールを更新しました"
     else 
       render :edit
     end
