@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
+  def after_sign_up_path_for(resource)
+    redirect_to new_profile_path
+  end
 end

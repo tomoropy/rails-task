@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_074654) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
-    t.text "profile_text"
     t.datetime "deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
