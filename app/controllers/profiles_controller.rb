@@ -12,12 +12,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    redirect_to new_profile_path if current_user.profile.blank?
+    # redirect_to new_profile_path if current_user.profile.blank?
   end
 
   def create
-    @profile = Profile.new(profile_params)
-    @profile.user = current_user
+    @profile = current_user.build_profile(profile_params)
     if @profile.save
       redirect_to root_path, notice: "プロフィールを作成しました"
     else

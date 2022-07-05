@@ -8,4 +8,4 @@
       p = current_user.profile_text
   .buttons
     = link_to 'Edit', edit_profile_path(current_user), class: 'btn edit'
-    = link_to 'Delete', user_registration_path, method: :delete, class: 'btn delete'
+    = link_to 'Delete', user_registration_path, method: :delete, data: { confirm: "本当に退会しますか？" }, class: 'btn delete'

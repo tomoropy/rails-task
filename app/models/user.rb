@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  delegate :name, :profile_text, :image, to: :profile
+  delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 
   def soft_delete  
     update_attribute(:deleted_at, Time.current)  
