@@ -8,11 +8,9 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-
   end
 
   def show
-    # redirect_to new_profile_path if current_user.profile.blank?
   end
 
   def create
@@ -33,7 +31,6 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    
   end
 
   private
