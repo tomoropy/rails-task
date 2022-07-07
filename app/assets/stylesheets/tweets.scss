@@ -1,11 +1,8 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-#top_page-index {
+#tweets-index {
   .content-wrapper {
     display: flex;
     justify-content: space-around;
+    padding-top: 50px;
 
     .contents-block {
       border: 2px solid;
@@ -15,15 +12,34 @@
 
       .content {
         display: flex;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         
-        .img {
-          background-color: gray;
-          width: 40px;
-          height: 40px;
-          margin: 3px 10px;
-          border-radius: 50%;
-        }
+        .icon {
+          display: flex;
+          flex-flow: column;
+          text-align: center;
+          position: relative;
+          height: 70px;
+
+            .icon_img {
+              background-color: gray;
+              width: 60px;
+              height: 60px;
+              margin: 3px 10px;
+              border-radius: 50%;
+            }
+            
+            .name {
+              position: absolute;
+              bottom: 0;
+              right: 10%;
+              left: 10%;
+              text-decoration: none;
+              font-size: 70%;
+              background-color: antiquewhite;
+              border-radius: 10px;
+            }
+          }
 
         .twite {
           width: 80%;
@@ -32,7 +48,6 @@
           p {
             padding: 2px;
             background-color: beige;
-            font-size: 12px;
             margin: 0;
             border-radius: 10px;
           }
@@ -64,20 +79,38 @@
         }
       }
 
-      .btn{
+      .btn {
         width: 105%;
         height: 25%;
         text-align: center;
         justify-content: center;
         background-color: bisque;
         margin-top: 12px;
-        
-        p {
-          margin: 0;
-          text-align: center;
+
+        .tweet {
+          text-decoration: none;
         }
       }
+    }
+  }
+}
 
+#tweets-new {
+  h4 {
+    margin: 50px auto;
+    text-align: center;
+  }
+  .form-group {
+    width: 70%;
+    margin: 15px auto;
+  }
+
+  .btn-space {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .btn {
+      background-color: bisque;
     }
   }
 }

@@ -1,0 +1,7 @@
+h4 ツイートを投稿する
+= form_with model: @tweet, locals: true do |f|
+  .form-group 
+    = f.label :text
+    = f.text_area :text, rows: 5, class: "form-control"
+  .btn-space  
+    = f.submit nil, class: 'btn' 
