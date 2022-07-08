@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :tweet, dependent: :destroy
+  has_many :comment, dependent: :destroy
 
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 
