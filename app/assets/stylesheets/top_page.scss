@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-#pages-index {
+#top_page-index {
   .content-wrapper {
     display: flex;
     justify-content: space-around;
@@ -16,7 +16,6 @@
       .content {
         display: flex;
         margin-bottom: 10px;
-        height: 100px;
         
         .img {
           background-color: gray;
@@ -58,6 +57,11 @@
 
       .user_name {
         text-align: center;
+
+        .name {
+          text-decoration: none;
+          color: black;
+        }
       }
 
       .btn{

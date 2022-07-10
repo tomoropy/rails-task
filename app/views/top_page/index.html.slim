@@ -4,8 +4,7 @@
       .content
         .img 
         .twite
-          p これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。
-            これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。
+          p これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。これはテキストです。
             これはテキストです。これはテキストです。これはテキストです。これはテキストです。
     .content
       .img 
@@ -20,6 +19,6 @@
     .prof_img
     .user_name
       - if user_signed_in?
-        = current_user.username
+        = link_to current_user.name, profile_path(current_user), class: "name"
     .btn 
       p Tweet!

@@ -1,0 +1,9 @@
+= form_with model: @profile, locals: true do |f|
+  .form-group 
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group 
+    = f.label :profile_text
+    = f.text_area :profile_text, class: "form-control"
+  .btn-space  
+    = f.submit nil, class: 'btn' 
