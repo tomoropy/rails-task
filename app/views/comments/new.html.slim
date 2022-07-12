@@ -1,2 +1,8 @@
-h1 Comments#new
-p Find me in app/views/comments/new.html.slim
+h4 コメントを投稿する
+= form_with model: @comment, url: tweet_comments_path, local: true do |f|
+  = f.hidden_field :tweet_id, :value => @tweet_id
+  .form-group 
+    = f.label :text
+    = f.text_area :text, rows: 5, maxlength: 140, class: "form-control"
+  .btn-space  
+    = f.submit nil, class: 'btn'

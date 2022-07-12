@@ -1,8 +1,12 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @tweets = Tweet.all.order(created_at: "DESC")
+  end
+
+  def show
+    @tweet = Tweet.find(params[:id])
+    @comments = @tweet.comment.order(created_at: "DESC")
   end
 
   def new
@@ -14,7 +18,8 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to root_path, notice: "ツイートを投稿しました"
     else
-      render :new
+      flash.now[:danger] = "ツイートの投稿に失敗しました"
+      render :new 
     end
   end
 

@@ -1,12 +1,12 @@
 .content-wrapper
   .contents-block 
-    - @tweets.each do |f|
+    - @tweets.each do |tweet|
       .content
         .icon
           .icon_img
-          = link_to f.user.name, profile_path(f.user), class: "name"
+          = link_to tweet.user.name, profile_path(tweet.user), class: "name"
         .twite
-          p= f.text
+          = link_to tweet.text, tweet_path(tweet.id), class: "text"
 
   .profile
     .prof_img
@@ -14,4 +14,4 @@
       - if user_signed_in?
         = link_to current_user.name, profile_path(current_user), class: "name"
     .btn 
-      = link_to 'Tweet!', new_tweet_path(current_user), class: "tweet"
+      = link_to 'Tweet!', new_tweet_path, class: "tweet"

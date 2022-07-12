@@ -1,0 +1,24 @@
+.content-wrapper
+  .contents-block 
+      .content
+        .icon
+          .icon_img
+          = link_to @tweet.user.name, profile_path(@tweet.user), class: "name"
+        .twite
+          = link_to @tweet.text, tweet_path(@tweet), class: "text"
+
+.comment-btn 
+  = link_to 'Comment!', new_tweet_comment_path(@tweet), class: "comment"
+
+.comment-title
+  h2 コメント
+
+.comment-wrapper
+  .comment-contents
+    - @comments.each do |comment|
+      .content
+        .icon
+          .icon_img
+          = link_to comment.user.name, profile_path(comment.user), class: "name"
+        .twite.comment-text
+          = comment.text
