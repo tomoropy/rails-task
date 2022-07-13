@@ -8,10 +8,9 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comment.new(comment_params)
     if @comment.save
-      redirect_to tweet_path(@comment.tweet_id), notice: "コメントを投稿しました"
+      redirect_to tweet_path(@comment.tweet_id), success: "コメントを投稿しました。"
     else
-      redirect_to new_tweet_comment_path(@id)
-      flash[:danger] = "ツイートの投稿に失敗しました"
+      redirect_to new_tweet_comment_path(@tweet_id), danger: "コメントの投稿に失敗しました。"
     end
   end
 

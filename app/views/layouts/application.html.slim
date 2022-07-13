@@ -9,6 +9,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body id="#{controller.controller_name}-#{controller.action_name}"
       = render 'shared/header'
+      = render 'shared/flash'
       .container
         = yield
       = render 'shared/footer'

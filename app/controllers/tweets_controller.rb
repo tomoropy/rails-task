@@ -16,10 +16,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweet.build(tweet_params)
     if @tweet.save
-      redirect_to root_path, notice: "ツイートを投稿しました"
+      redirect_to root_path, success: "ツイートを投稿しました"
     else
-      flash.now[:danger] = "ツイートの投稿に失敗しました"
-      render :new 
+      redirect_to new_tweet_path, danger: "ツイートの投稿に失敗しました"
     end
   end
 
