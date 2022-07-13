@@ -3,13 +3,17 @@
     - @tweets.each do |tweet|
       .content
         .icon
-          .icon_img
+          - if tweet.user.image.attached?
+            = image_tag tweet.user.image, class: 'icon_img'
+          - else 
+            = image_tag 'default.jpg', class: 'icon_img'
           = link_to tweet.user.name, profile_path(tweet.user), class: "name"
         .twite
           = link_to tweet.text, tweet_path(tweet.id), class: "text"
 
   .profile
-    .prof_img
+    .prof
+      = image_tag current_user.image, class: 'prof_img'
     .user_name
       - if user_signed_in?
         = link_to current_user.name, profile_path(current_user), class: "name"

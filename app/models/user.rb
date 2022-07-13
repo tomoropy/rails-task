@@ -3,9 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise  :database_authenticatable, :registerable, :rememberable
 
-  has_one :profile, dependent: :destroy
-  has_many :tweet, dependent: :destroy
-  has_many :comment, dependent: :destroy
+  has_one  :profile,  dependent: :destroy
+  has_many :tweet,    dependent: :destroy
+  has_many :comment,  dependent: :destroy
 
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 
