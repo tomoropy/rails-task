@@ -1,10 +1,10 @@
 = form_with model: @profile, locals: true do |f|
   .form-group 
     = f.label :name
-    = f.text_field :name, class: "form-control"
+    = f.text_field :name, maxlength: 8, class: "form-control"
   .form-group 
     = f.label :profile_text
-    = f.text_area :profile_text, class: "form-control"
+    = f.text_area :profile_text, maxlength: 300, rows: 5, class: "form-control"
   .form-group 
     = f.file_field :image, class: "form-control"
   .btn-space  
