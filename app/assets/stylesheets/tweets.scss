@@ -43,11 +43,12 @@
           }
 
         .twite {
-          width: 80%;
+          width: auto;
           margin: 3px;
           background-color: beige;
           border-radius: 10px;
           padding: 5px;
+          word-break: break-all;
 
           .text {
             padding: 2px;

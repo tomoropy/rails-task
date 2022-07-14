@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_tweet
+  before_action :find_tweet_id
 
   def new
     @comment = Comment.new
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def find_tweet
+  def find_tweet_id
     @tweet_id = params[:tweet_id]
   end
 

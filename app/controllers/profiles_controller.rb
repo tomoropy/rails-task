@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile, only: [:show, :edit, :update]
-  
+  before_action :find_profile, only: [:show, :edit, :update] 
+  skip_before_action :authenticate_user!, only: [:index]
+
   def new
     return redirect_to edit_profile_path(current_user) if !current_user.profile.blank?
     @profile = Profile.new
@@ -15,7 +16,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
-      redirect_to root_path, notice: "プロフィールを作成しました"
+      redirect_to root_path, success: "プロフィールを作成しました"
     else
       render :new
     end
@@ -23,7 +24,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path(current_user), notice: "プロフィールを更新しました"
+      redirect_to profile_path(current_user), success: "プロフィールを更新しました"
     else 
       render :edit
     end
