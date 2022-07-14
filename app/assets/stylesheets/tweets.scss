@@ -1,4 +1,4 @@
-#tweets-index {
+#tweets-index, #tweets-show{
   .content-wrapper {
     display: flex;
     justify-content: space-around;
@@ -43,12 +43,17 @@
           }
 
         .twite {
-          width: 80%;
+          width: auto;
           margin: 3px;
+          background-color: beige;
+          border-radius: 10px;
+          padding: 5px;
+          word-break: break-all;
 
-          p {
+          .text {
             padding: 2px;
-            background-color: beige;
+            text-decoration: none;
+            color: black;
             margin: 0;
             border-radius: 10px;
           }
@@ -97,7 +102,7 @@
   }
 }
 
-#tweets-new {
+#tweets-new, #tweets-create {
   h4 {
     margin: 50px auto;
     text-align: center;
@@ -113,6 +118,93 @@
 
     .btn {
       background-color: bisque;
+    }
+  }
+}
+
+
+#tweets-show {
+  .comment-title {
+    text-align: center;
+    margin: 20px auto;
+
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  .comment-btn {
+    text-align: right;
+    margin: 20px;
+    margin-right: 90px;
+
+    .comment {
+      text-decoration: none;
+      color: black;
+      background-color: bisque;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
+
+  .comment-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    .comment-contents {
+      border: 2px solid;
+      border-radius: 10px;
+      width: 75%;
+      padding: 20px;
+
+      .content {
+        display: flex;
+        margin-bottom: 20px;
+        
+        .icon {
+          display: flex;
+          flex-flow: column;
+          text-align: center;
+          position: relative;
+          height: 70px;
+
+            .icon_img {
+              background-color: gray;
+              width: 60px;
+              height: 60px;
+              margin: 3px 10px;
+              border-radius: 50%;
+            }
+            
+            .name {
+              position: absolute;
+              bottom: 0;
+              right: 10%;
+              left: 10%;
+              text-decoration: none;
+              font-size: 70%;
+              color: black;
+              background-color: antiquewhite;
+              border-radius: 10px;
+            }
+          }
+
+        .twite {
+          width: 80%;
+          margin: 3px;
+          background-color: thistle;
+          border-radius: 10px;
+          padding: 5px;
+
+          .text {
+            padding: 2px;
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            border-radius: 10px;
+          }
+        }
+      }
     }
   }
 }
