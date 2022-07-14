@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise  :database_authenticatable, :registerable, :rememberable
 
   has_one :profile, dependent: :destroy
+  has_many :tweet, dependent: :destroy
 
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 

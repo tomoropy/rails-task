@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :find_profile, only: [:show, :edit, :update]
   
   def new
@@ -8,11 +8,9 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-
   end
 
   def show
-    # redirect_to new_profile_path if current_user.profile.blank?
   end
 
   def create
@@ -33,7 +31,6 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    
   end
 
   private

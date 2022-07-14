@@ -1,0 +1,17 @@
+.content-wrapper
+  .contents-block 
+    - @tweets.each do |f|
+      .content
+        .icon
+          .icon_img
+          = link_to f.user.name, profile_path(f.user), class: "name"
+        .twite
+          p= f.text
+
+  .profile
+    .prof_img
+    .user_name
+      - if user_signed_in?
+        = link_to current_user.name, profile_path(current_user), class: "name"
+    .btn 
+      = link_to 'Tweet!', new_tweet_path(current_user), class: "tweet"
