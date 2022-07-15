@@ -67,3 +67,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem 'omniauth-github'
+
+gem 'activestorage-validator'

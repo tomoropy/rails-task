@@ -1,13 +1,32 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise  :database_authenticatable, :registerable, :rememberable
+  devise  :database_authenticatable, :registerable, :rememberable,
+          :omniauthable, omniauth_providers: [:github]
 
   has_one  :profile,  dependent: :destroy
   has_many :tweet,    dependent: :destroy
   has_many :comment,  dependent: :destroy
 
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
+
+  # uidとproviderカラムの組み合わせを一意にする
+  validates :uid, presence: true, uniqueness: { scope: :provider }
+  validates :email, presence: true, uniqueness: true
+
+  # authの中身はGitHubから送られてくる大きなハッシュ。この中に名前やメアドなどが入っている。
+  # providerカラムとuidカラムが送られてきたデータと一致するユーザーを探す。
+  # もしユーザーが見つからない場合は新規作成する。
+  def self.find_for_github_oauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
+
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
 
   def soft_delete  
     update_attribute(:deleted_at, Time.current)  
