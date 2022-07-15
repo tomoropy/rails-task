@@ -1,6 +1,9 @@
 .content-wrapper 
   .profile 
-    .img 
+    - if @user.image.attached?
+      = image_tag @user.image, class: 'img'
+    - else 
+      = image_tag 'default.jpg', class: 'img'
     .name
       = @user.name
     .profile_text

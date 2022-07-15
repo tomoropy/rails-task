@@ -68,12 +68,16 @@
       height: 200px;
       padding: 20px;
 
-      .prof_img {
-        margin: 10px auto;
-        background-color: gray;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
+      .prof {
+        display: flex;
+        
+        .prof_img {
+          margin: 10px auto;
+          background-color: gray;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+        }
       }
 
       .user_name {
