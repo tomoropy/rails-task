@@ -1,4 +1,6 @@
 .content-wrapper 
+  .button
+    = link_to 'Detail', "/profiles/#{@user.id}/detail", class: 'btn tweet_comment' 
   .profile 
     - if @user.image.attached?
       = image_tag @user.image, class: 'img'

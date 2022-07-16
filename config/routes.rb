@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
+  get 'profiles/:id/detail', to: 'profiles#detail'
+
   root 'tweets#index'
 end

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile, only: [:show, :edit, :update] 
-  skip_before_action :authenticate_user!, only: [:show]
+  before_action :find_profile, only: [:show, :edit, :update, :detail] 
+  skip_before_action :authenticate_user!, only: [:show, :detail]
 
   def new
     return redirect_to edit_profile_path(current_user) unless current_user.profile.blank?
@@ -12,6 +12,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
+  end
+
+  def detail
+    @tweets = @user.tweet
+    @comments = @user.comment
   end
 
   def create
