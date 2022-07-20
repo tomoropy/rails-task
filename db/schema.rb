@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_010007) do
+ActiveRecord::Schema.define(version: 2022_07_17_115556) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2022_07_15_010007) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_comments_on_tweet_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "likable_type"
+    t.integer "likable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["likable_type", "likable_id"], name: "index_likes_on_likable_type_and_likable_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -79,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_010007) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "tweets", "users"
 end
