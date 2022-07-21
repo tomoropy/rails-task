@@ -10,8 +10,6 @@ class User < ApplicationRecord
 
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 
-  # uidとproviderカラムの組み合わせを一意にする
-  validates :uid, presence: true, uniqueness: { scope: :provider }
   validates :email, presence: true, uniqueness: true
 
   # authの中身はGitHubから送られてくる大きなハッシュ。この中に名前やメアドなどが入っている。
@@ -22,10 +20,6 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
     end
-  end
-
-  def self.create_unique_string
-    SecureRandom.uuid
   end
 
   def soft_delete  
