@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update] 
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :new]
 
   def new
     return redirect_to edit_profile_path(current_user) unless current_user.profile.blank?
