@@ -1,4 +1,4 @@
-#tweets-index, #tweets-show, #profiles-detail{
+#tweets-index, #tweets-show, #profiles-detail {
   .content-wrapper {
     display: flex;
     justify-content: space-around;
@@ -75,6 +75,8 @@
 
           .count {
             margin: 0;
+            font-size: 0.8rem;
+            font-weight: lighter;
           }
         }
       }
@@ -227,7 +229,7 @@
             border-radius: 10px;
           }
         }
-        
+
         .like {
           display: flex;
           flex-direction: column-reverse;
@@ -244,6 +246,8 @@
 
           .count {
             margin: 0;
+            font-size: 0.8rem;
+            font-weight: lighter;
           }
         }
       }

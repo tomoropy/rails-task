@@ -30,11 +30,6 @@ class TweetsController < ApplicationController
 
   private
 
-  def like_mark
-    @fill_like = "❤︎"
-    @empty_like = "♡"
-  end
-
   def find_tweet
     @tweet = Tweet.find(params[:id])
   end

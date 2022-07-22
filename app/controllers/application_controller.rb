@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
       redirect_to request.referer, success: "いいねしました"
     end
   end
+
+  def like_mark
+    @fill_like = "❤︎"
+    @empty_like = "♡"
+  end
 end

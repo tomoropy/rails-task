@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update, :detail] 
   skip_before_action :authenticate_user!, only: [:show, :new, :detail]
+  before_action :like_mark
 
   def new
     return redirect_to edit_profile_path(current_user) unless current_user.profile.blank?
@@ -12,6 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @posts = Like.where(user_id: current_user)
   end
 
   def detail

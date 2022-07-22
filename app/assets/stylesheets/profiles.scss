@@ -3,17 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #profiles-show {
+
   .content-wrapper {
     display: flex;
     justify-content: space-around;
-
-    .button {
-      margin-top: 30px;
-
-      .tweet_comment {
-        background-color: goldenrod;
-      }
-    }
 
     .profile {
       display: flex;
@@ -23,7 +16,7 @@
       width: 70%;
       border: 2px solid;
       border-radius: 10px;
-      margin: 30px 10px;
+      margin: 30px auto;
 
       .img {
         width: 100px;
@@ -56,15 +49,15 @@
       display: flex;
       flex-flow: column;
       margin-top: 30px;
+      margin-left: -60px;
 
       .btn {
-        background-color: bisque;
+        border: 2px solid;
+        border-radius: 10px;
         text-decoration: none;
-      }
-
-      .edit {
         margin-bottom: 6px;
       }
+
     }
   }
 }
@@ -85,6 +78,158 @@
 
     .btn {
       background-color: bisque;
+    }
+  }
+}
+
+#like {
+  h1 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+
+    .contents-block {
+      border: 2px solid;
+      border-radius: 10px;
+      width: 75%;
+      padding: 20px;
+
+      .content {
+        display: flex;
+        margin-bottom: 20px;
+        
+        .icon {
+          display: flex;
+          flex-flow: column;
+          text-align: center;
+          position: relative;
+          height: 70px;
+
+            .icon_img {
+              background-color: gray;
+              width: 60px;
+              height: 60px;
+              margin: 3px 10px;
+              border-radius: 50%;
+            }
+            
+            .name {
+              position: absolute;
+              bottom: 0;
+              right: 10%;
+              left: 10%;
+              text-decoration: none;
+              font-size: 70%;
+              color: black;
+              background-color: antiquewhite;
+              border-radius: 10px;
+            }
+          }
+
+        .twite {
+          width: auto;
+          margin: 3px;
+          background-color: beige;
+          border-radius: 10px;
+          padding: 5px;
+          word-break: break-all;
+
+          .text {
+            padding: 2px;
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            border-radius: 10px;
+          }
+        }
+
+        .comment-text {
+          width: auto;
+          margin: 3px;
+          background-color: thistle;
+          border-radius: 10px;
+          padding: 5px;
+          word-break: break-all;
+
+          .text {
+            padding: 2px;
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            border-radius: 10px;
+          }
+        } 
+
+        .like {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .hart {
+            margin: 0;
+            text-decoration: none;
+          }
+        }
+
+        .like_count {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .count {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: lighter;
+          }
+        }
+      }
+    }
+    
+    .profile {
+      border: 2px solid;
+      border-radius: 10px;
+      width: 18%;
+      height: 200px;
+      padding: 20px;
+
+      .prof {
+        display: flex;
+        
+        .prof_img {
+          margin: 10px auto;
+          background-color: gray;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+        }
+      }
+
+      .user_name {
+        text-align: center;
+
+        .name {
+          text-decoration: none;
+          color: black;
+        }
+      }
+
+      .btn {
+        width: 105%;
+        height: 25%;
+        text-align: center;
+        justify-content: center;
+        background-color: bisque;
+        margin-top: 12px;
+
+        .tweet {
+          text-decoration: none;
+          color: black;
+        }
+      }
     }
   }
 }

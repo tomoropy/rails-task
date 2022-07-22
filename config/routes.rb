@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   end
 
   get  'profiles/:id/detail', to: 'profiles#detail'
-  get  'profiles/:id/likes',  to: 'profiles@likes'
 
   post 'tweets/:id/like',     to: 'tweets#like_tweet'
   post 'comments/:id/like',   to: 'comments#like_comment'
