@@ -227,6 +227,25 @@
             border-radius: 10px;
           }
         }
+        
+        .like {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .hart {
+            margin: 0;
+            text-decoration: none;
+          }
+        }
+
+        .like_count {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .count {
+            margin: 0;
+          }
+        }
       }
     }
   }

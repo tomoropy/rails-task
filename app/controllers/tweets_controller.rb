@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :find_tweet, only: [:show, :like]
+  before_action :find_tweet, only: [:show, :like_tweet]
   before_action :like_mark
 
   def index
@@ -24,14 +24,8 @@ class TweetsController < ApplicationController
     end
   end
 
-  def like 
-    if @tweet.liked_by?(current_user)
-      @tweet.unliked_by(current_user)
-      redirect_to root_path
-    else
-      @tweet.liked_by(current_user)
-      redirect_to root_path
-    end
+  def like_tweet
+    like(@tweet)
   end
 
   private

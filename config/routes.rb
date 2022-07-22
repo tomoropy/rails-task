@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root   'tweets#index'
+
   devise_for :users, controllers: { 
     omniauth_callbacks: "users/omniauth_callbacks",
     registrations:      "users/registrations"
@@ -10,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   get  'profiles/:id/detail', to: 'profiles#detail'
-  post 'tweets/:id/like',     to: 'tweets#like'
+  get  'profiles/:id/likes',  to: 'profiles@likes'
 
-  root   'tweets#index'
+  post 'tweets/:id/like',     to: 'tweets#like_tweet'
+  post 'comments/:id/like',   to: 'comments#like_comment'
+
 end

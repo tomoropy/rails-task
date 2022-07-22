@@ -9,6 +9,10 @@
           = link_to @tweet.user.name, profile_path(@tweet.user), class: "name"
         .twite
           = link_to @tweet.text, tweet_path(@tweet), class: "text"
+        .like 
+          = link_to @tweet.liked_by?(current_user)? @fill_like : @empty_like, "#{@tweet.id}/like", method: :post, class: "hart"
+        .like_count
+          .count= @tweet.liked_count
 
 .comment-btn 
   = link_to 'Comment!', new_tweet_comment_path(@tweet), class: "comment"
@@ -29,3 +33,7 @@
           = link_to comment.user.name, profile_path(comment.user), class: "name"
         .twite.comment-text
           = comment.text
+        .like 
+          = link_to comment.liked_by?(current_user)? @fill_like : @empty_like, "/comments/#{comment.id}/like", method: :post, class: "hart"
+        .like_count
+          .count= comment.liked_count
