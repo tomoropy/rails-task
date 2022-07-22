@@ -10,8 +10,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_github_oauth(request.env["omniauth.auth"])
 
     if @user.persisted? # データベースに保存されていればログイン成功
-      if @user.profile.blank? 
-        redirect_to new_profile_path, event: :authentication #プロフィールを作成していなければ、作成
+      if @user.profile.blank?
+        sign_in @user, event: :authentication #プロフィールを作成していなければ、作成
+        redirect_to new_profile_path
       else
         sign_in_and_redirect @user, event: :authentication #プロフィールを作成していれば、ログイン
       end

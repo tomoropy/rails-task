@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :new, :detail]
 
   def new
-    return redirect_to edit_profile_path(current_user) unless current_user.profile.blank?
+    # return redirect_to edit_profile_path(current_user) unless current_user.profile.blank?
     @profile = Profile.new
   end
   

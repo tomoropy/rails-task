@@ -9,10 +9,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
-  get 'profiles/:id/detail', to: 'profiles#detail'
-
-  post   'likes/create',    to: 'likes#create'
-  delete 'likes/destroy',   to: 'likes#destroy'
+  get  'profiles/:id/detail', to: 'profiles#detail'
+  post 'tweets/:id/like',     to: 'tweets#like'
 
   root   'tweets#index'
 end
