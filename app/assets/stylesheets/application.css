@@ -14,7 +14,8 @@
  *= require_self
  */
 
-body {
+body.body {
+  background-color: mintcream;
   word-break: break-all;
   min-height: 100vh;
   position: relative;/*←相対位置*/

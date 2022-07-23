@@ -7,6 +7,10 @@ class User < ApplicationRecord
   has_one  :profile,  dependent: :destroy
   has_many :tweet,    dependent: :destroy
   has_many :comment,  dependent: :destroy
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :user
 
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 
@@ -35,4 +39,22 @@ class User < ApplicationRecord
   def inactive_message   
     !deleted_at ? super : :deleted_account  
   end 
+
+  # フォロー機能に関するメソッド
+
+  def follow(other_user)
+    unless self == other_user
+      self.relationships.find_or_create_by(follow_id: other_user.id)
+    end
+  end
+
+  def unfollow(other_user)
+    relationship = self.relationships.find_by(follow_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_user)
+    self.followings.include?(other_user)
+  end
+  
 end

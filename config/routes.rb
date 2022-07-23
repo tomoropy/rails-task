@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: [:new, :create]
   end
-
+  resources :relationships, only: [:create, :destroy]
+  
   get  'profiles/:id/detail', to: 'profiles#detail'
 
   post 'tweets/:id/like',     to: 'tweets#like_tweet'
