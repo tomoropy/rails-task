@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root   'tweets#index'
+
   devise_for :users, controllers: { 
     omniauth_callbacks: "users/omniauth_callbacks",
-    registrations: "users/registrations"
+    registrations:      "users/registrations"
     }
 
   resources :profiles, only: [:show, :new, :edit, :create, :update]
@@ -9,5 +11,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
-  root 'tweets#index'
+  get  'profiles/:id/detail', to: 'profiles#detail'
+
+  post 'tweets/:id/like',     to: 'tweets#like_tweet'
+  post 'comments/:id/like',   to: 'comments#like_comment'
+
 end

@@ -1,0 +1,32 @@
+.comment-title
+  h2 ツイート
+
+.content-wrapper
+  .contents-block 
+    - @tweets.each do |tweet|
+      .content
+        .icon
+          - if tweet.user.image.attached?
+            = image_tag tweet.user.image, class: 'icon_img'
+          - else 
+            = image_tag 'default.jpg', class: 'icon_img'
+          = link_to tweet.user.name, profile_path(tweet.user), class: "name"
+        .twite
+          = link_to tweet.text, tweet_path(tweet.id), class: "text"
+
+.comment-title
+  h2 コメント
+
+.comment-wrapper
+  .comment-contents
+    - @comments.each do |comment|
+      .content
+        .icon
+          - if comment.user.image.attached?
+            = image_tag comment.user.image, class: 'icon_img'
+          - else 
+            = image_tag 'default.jpg', class: 'icon_img'
+          .icon_img
+          = link_to comment.user.name, profile_path(comment.user), class: "name"
+        .twite.comment-text
+          = comment.text
