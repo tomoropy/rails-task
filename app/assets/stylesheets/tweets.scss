@@ -1,4 +1,19 @@
 #tweets-index, #tweets-show, #profiles-detail, #searches-search{
+  .search_form {
+    margin: 10px 0;
+    text-align: left;
+
+    .word {
+      margin: 0 10px;
+    }
+
+    .btn {
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 2px;
+      margin-left: 10px;
+    }
+  }
   .content-wrapper {
     display: flex;
     justify-content: space-around;
