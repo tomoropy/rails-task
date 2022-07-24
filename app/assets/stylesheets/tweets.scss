@@ -1,4 +1,4 @@
-#tweets-index, #tweets-show, #profiles-detail {
+#tweets-index, #tweets-show, #profiles-detail, #searches-search{
   .content-wrapper {
     display: flex;
     justify-content: space-around;
@@ -148,7 +148,7 @@
 }
 
 
-#tweets-show, #profiles-detail {
+#tweets-show, #profiles-detail, #searches-search{
   .comment-title {
     text-align: center;
     margin: 20px auto;
@@ -159,7 +159,7 @@
   }
 
   .comment-btn {
-    text-align: right;
+    text-align: right;  
     margin: 20px;
     margin-right: 90px;
 

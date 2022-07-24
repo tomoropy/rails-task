@@ -6,4 +6,9 @@ class Tweet < ApplicationRecord
   include Liked
 
   validates :text, presence: true, length: {maximum: 140}
+
+  #検索機能
+  def self.looks(word)
+    @tweet = Tweet.where("text Like?", "%#{word}%")
+  end
 end

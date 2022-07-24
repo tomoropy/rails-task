@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_tweet, only: [:show, :like_tweet]
-  before_action :like_mark
 
   def index
     @tweets = Tweet.all.order(created_at: "DESC")

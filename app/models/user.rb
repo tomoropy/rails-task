@@ -15,6 +15,7 @@ class User < ApplicationRecord
   delegate :name, :profile_text, :image, to: :profile, allow_nil: true
 
   validates :email, presence: true, uniqueness: true
+  validates :uid, uniqueness: { scope: :provider }, if: :uid
 
   # authの中身はGitHubから送られてくる大きなハッシュ。この中に名前やメアドなどが入っている。
   # providerカラムとuidカラムが送られてきたデータと一致するユーザーを探す。

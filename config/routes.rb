@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   
   get  'profiles/:id/detail', to: 'profiles#detail'
+  get  'search',              to: 'searches#search'
 
   post 'tweets/:id/like',     to: 'tweets#like_tweet'
   post 'comments/:id/like',   to: 'comments#like_comment'

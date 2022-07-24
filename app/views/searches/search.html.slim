@@ -1,0 +1,12 @@
+h1 検索結果
+
+- if @range == "ツイート"
+  .content-wrapper
+    .contents-block 
+      - @tweets.each do |tweet|
+        = render 'tweets/tweets', tweet: tweet 
+- elsif @range == "コメント"
+  .comment-wrapper 
+    .comment-contents
+      - @comments.each do |comment|
+        = render 'comments/comment', comment: comment

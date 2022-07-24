@@ -1,3 +1,10 @@
+- if user_signed_in?
+  .search_form 
+    = form_with url: search_path, local: true, method: :get do |f|
+      = f.label '検索するワード'
+      = f.text_field :word
+      = f.select :range, options_for_select([['ツイート'], ['コメント']])
+      = f.submit "検索", class: "btn" 
 .content-wrapper
   .contents-block 
     - @tweets.each do |tweet|
