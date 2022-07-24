@@ -8,7 +8,57 @@
       = @user.name
     .profile_text
       = @user.profile_text
-  .buttons
-    - if @user == current_user
-      = link_to 'Edit', edit_profile_path(current_user), class: 'btn edit'
-      = link_to 'Delete', user_registration_path, method: :delete, data: { confirm: "本当に退会しますか？" }, class: 'btn delete'
+  - unless @user == current_user
+    .buttons
+      = link_to '詳細', "/profiles/#{@user.id}/detail", class: 'btn tweet_comment' 
+      
+      - if user_signed_in?
+        - if current_user.following?(@user)
+          = form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f| 
+            = hidden_field_tag :follow_id, @user.id
+            = f.submit 'フォロー解除', class: 'btn btn-danger btn-block' 
+        - else 
+          = form_for(current_user.relationships.build) do |f| 
+            = hidden_field_tag :follow_id, @user.id 
+            = f.submit 'フォローする', class: 'btn btn-primary btn-block' 
+  - else
+    .buttons 
+      = link_to '編集', edit_profile_path(current_user), class: 'btn'
+
+#like
+  h1 いいね 一覧
+  .content-wrapper
+    .contents-block 
+      - @posts.each do |post|
+        - if post.likable_type == "Tweet"
+          - tweet = Tweet.find(post.likable_id)
+          .content
+            .icon
+              - if tweet.user.image.attached?
+                = image_tag tweet.user.image, class: 'icon_img'
+              - else 
+                = image_tag 'default.jpg', class: 'icon_img'
+              = link_to tweet.user.name, profile_path(tweet.user), class: "name"
+            .twite
+              = link_to tweet.text, tweet_path(tweet.id), class: "text"
+            .like 
+              = link_to tweet.liked_by?(current_user)? @fill_like : @empty_like, "tweets/#{tweet.id}/like", method: :post, class: "hart"
+            .like_count
+              .count= tweet.liked_count
+
+        - elsif post.likable_type == "Comment"
+          - comment = Comment.find(post.likable_id)
+          .content
+            .icon
+              - if comment.user.image.attached?
+                = image_tag comment.user.image, class: 'icon_img'
+              - else 
+                = image_tag 'default.jpg', class: 'icon_img'
+              .icon_img
+              = link_to comment.user.name, profile_path(comment.user), class: "name"
+            .comment-text
+              = comment.text
+            .like 
+              = link_to comment.liked_by?(current_user)? @fill_like : @empty_like, "/comments/#{comment.id}/like", method: :post, class: "hart"
+            .like_count
+              .count= comment.liked_count

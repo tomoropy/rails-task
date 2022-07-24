@@ -1,8 +1,23 @@
-#tweets-index, #tweets-show{
+#tweets-index, #tweets-show, #profiles-detail, #searches-search{
+  .search_form {
+    margin: 10px 0;
+    text-align: left;
+
+    .word {
+      margin: 0 10px;
+    }
+
+    .btn {
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 2px;
+      margin-left: 10px;
+    }
+  }
   .content-wrapper {
     display: flex;
     justify-content: space-around;
-    padding-top: 50px;
+    margin: 30px auto;
 
     .contents-block {
       border: 2px solid;
@@ -56,6 +71,27 @@
             color: black;
             margin: 0;
             border-radius: 10px;
+          }
+        }
+
+        .like {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .hart {
+            margin: 0;
+            text-decoration: none;
+          }
+        }
+
+        .like_count {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .count {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: lighter;
           }
         }
       }
@@ -127,7 +163,7 @@
 }
 
 
-#tweets-show {
+#tweets-show, #profiles-detail, #searches-search{
   .comment-title {
     text-align: center;
     margin: 20px auto;
@@ -138,7 +174,7 @@
   }
 
   .comment-btn {
-    text-align: right;
+    text-align: right;  
     margin: 20px;
     margin-right: 90px;
 
@@ -154,6 +190,7 @@
   .comment-wrapper {
     display: flex;
     justify-content: space-around;
+    margin: 30px auto;
 
     .comment-contents {
       border: 2px solid;
@@ -194,7 +231,6 @@
           }
 
         .twite {
-          width: 80%;
           margin: 3px;
           background-color: thistle;
           border-radius: 10px;
@@ -206,6 +242,27 @@
             color: black;
             margin: 0;
             border-radius: 10px;
+          }
+        }
+
+        .like {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .hart {
+            margin: 0;
+            text-decoration: none;
+          }
+        }
+
+        .like_count {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .count {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: lighter;
           }
         }
       }

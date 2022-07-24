@@ -1,15 +1,19 @@
+- if user_signed_in?
+  .search_form 
+    = form_with url: search_path, local: true, method: :get do |f|
+      = f.label '検索ワード'
+      = f.text_field :word, class: "word"
+      = f.select :range, options_for_select([['ツイート'], ['コメント']]), class: "range"
+      = f.submit "検索", class: "btn" 
 .content-wrapper
   .contents-block 
     - @tweets.each do |tweet|
-      .content
-        .icon
-          - if tweet.user.image.attached?
-            = image_tag tweet.user.image, class: 'icon_img'
-          - else 
-            = image_tag 'default.jpg', class: 'icon_img'
-          = link_to tweet.user.name, profile_path(tweet.user), class: "name"
-        .twite
-          = link_to tweet.text, tweet_path(tweet.id), class: "text"
+      - if user_signed_in?
+        - user_for_tweet = tweet.user
+        - if current_user.following?(user_for_tweet) || tweet.user == current_user
+          = render 'tweets', tweet: tweet
+      - else 
+        = render 'tweets', tweet: tweet
 
   .profile
     - if user_signed_in?
@@ -21,4 +25,4 @@
       .user_name
         = link_to current_user.name, profile_path(current_user), class: "name"
     .btn 
-      = link_to 'Tweet!', new_tweet_path, class: "tweet"
+      = link_to 'つぶやく', new_tweet_path, class: "tweet"
